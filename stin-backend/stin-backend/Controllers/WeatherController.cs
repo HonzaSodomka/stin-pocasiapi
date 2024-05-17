@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace stin_backend.Controllers
 {
@@ -24,7 +25,11 @@ namespace stin_backend.Controllers
         {
             try
             {
+                _logger.LogInformation("Received request for current weather with city: {City} and apiKey: {ApiKey}", city, apiKey);
+
                 var apiUrl = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric";
+                _logger.LogInformation("Requesting weather data from URL: {ApiUrl}", apiUrl);
+
                 var response = await _httpClient.GetAsync(apiUrl);
 
                 if (!response.IsSuccessStatusCode)
@@ -34,9 +39,10 @@ namespace stin_backend.Controllers
                 }
 
                 var data = await response.Content.ReadAsStringAsync();
-                _logger.LogInformation("Weather API response: {Data}", data);
+                _logger.LogInformation("Weather API response data: {Data}", data);
 
                 var jsonData = JObject.Parse(data);
+                _logger.LogInformation("Parsed JSON data: {JsonData}", jsonData);
 
                 var result = new
                 {
@@ -51,12 +57,23 @@ namespace stin_backend.Controllers
 
                 return Ok(result);
             }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogError(ex, "HTTP request error occurred while getting the current weather.");
+                return StatusCode(500, "HTTP request error");
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "JSON parsing error occurred while getting the current weather.");
+                return StatusCode(500, "JSON parsing error");
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while getting the current weather.");
+                _logger.LogError(ex, "An unexpected error occurred while getting the current weather.");
                 return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpGet("history")]
         public async Task<IActionResult> GetHistoricalWeather(double latitude, double longitude, string startDate, string endDate, string apiKey)
