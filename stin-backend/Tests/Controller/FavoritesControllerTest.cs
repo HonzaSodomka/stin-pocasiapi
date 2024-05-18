@@ -175,6 +175,67 @@ namespace Tests.Controller
                 deletedFavorite.Should().BeNull();
             }
         }
+        [Fact]
+        public async Task GetFavorite_WithInvalidId_ShouldReturnNotFound()
+        {
+            // Arrange
+            var dbContextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .Options;
+
+            using (var context = new DatabaseContext(dbContextOptions))
+            {
+                var controller = new FavoritesController(context);
+
+                // Act
+                var actionResult = await controller.GetFavorite(100); // Invalid ID
+
+                // Assert
+                actionResult.Result.Should().BeOfType<NotFoundResult>();
+            }
+        }
+
+        [Fact]
+        public async Task PutFavorite_WithNonExistingId_ShouldReturnNotFound()
+        {
+            // Arrange
+            var dbContextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .Options;
+
+            var updatedFavorite = new Favorite { id = 1, city = "UpdatedCity", User_id = 1 };
+
+            using (var context = new DatabaseContext(dbContextOptions))
+            {
+                var controller = new FavoritesController(context);
+
+                // Act
+                var actionResult = await controller.PutFavorite(1, updatedFavorite);
+
+                // Assert
+                actionResult.Should().BeOfType<NotFoundResult>();
+            }
+        }
+
+        [Fact]
+        public async Task DeleteFavorite_WithNonExistingId_ShouldReturnNotFound()
+        {
+            // Arrange
+            var dbContextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .Options;
+
+            using (var context = new DatabaseContext(dbContextOptions))
+            {
+                var controller = new FavoritesController(context);
+
+                // Act
+                var actionResult = await controller.DeleteFavorite(1);
+
+                // Assert
+                actionResult.Should().BeOfType<NotFoundResult>();
+            }
+        }
 
     }
 }
