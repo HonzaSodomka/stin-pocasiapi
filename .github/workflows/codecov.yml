@@ -35,7 +35,7 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: stin-backend/Tests/coverage/**/coverage.opencover.xml
+        files: stin-backend/Tests/coverage/**/coverage.cobertura.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
