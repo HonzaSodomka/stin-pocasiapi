@@ -12,7 +12,7 @@
           "Microsoft.EntityFrameworkCore.InMemory": "9.0.0-preview.3.24172.4",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "Moq": "4.20.70",
-          "coverlet.collector": "6.0.0",
+          "coverlet.collector": "6.0.2",
           "stin-backend": "1.0.0",
           "xunit": "2.5.3",
           "xunit.runner.visualstudio": "2.5.3"
@@ -66,7 +66,7 @@
           }
         }
       },
-      "coverlet.collector/6.0.0": {},
+      "coverlet.collector/6.0.2": {},
       "FluentAssertions/6.12.0": {
         "dependencies": {
           "System.Configuration.ConfigurationManager": "7.0.0"
@@ -2973,12 +2973,12 @@
       "path": "castle.core/5.1.1",
       "hashPath": "castle.core.5.1.1.nupkg.sha512"
     },
-    "coverlet.collector/6.0.0": {
+    "coverlet.collector/6.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tW3lsNS+dAEII6YGUX/VMoJjBS1QvsxqJeqLaJXub08y1FSjasFPtQ4UBUsudE9PNrzLjooClMsPtY2cZLdXpQ==",
-      "path": "coverlet.collector/6.0.0",
-      "hashPath": "coverlet.collector.6.0.0.nupkg.sha512"
+      "sha512": "sha512-bJShQ6uWRTQ100ZeyiMqcFlhP7WJ+bCuabUs885dJiBEzMsJMSFr7BOyeCw4rgvQokteGi5rKQTlkhfQPUXg2A==",
+      "path": "coverlet.collector/6.0.2",
+      "hashPath": "coverlet.collector.6.0.2.nupkg.sha512"
     },
     "FluentAssertions/6.12.0": {
       "type": "package",
