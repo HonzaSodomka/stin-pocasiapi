@@ -19,20 +19,23 @@ jobs:
       with:
         dotnet-version: 7.x
 
-    - name: Install dependencies
+    - name: Restore dependencies
       run: dotnet restore
+      working-directory: stin-backend/Tests
 
     - name: Build
       run: dotnet build --no-restore
+      working-directory: stin-backend/Tests
 
     - name: Run tests with coverage
-      run: dotnet test stin-backend/Tests --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutput=./coverage/ /p:CoverletOutputFormat=opencover
+      run: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutput=./coverage/ /p:CoverletOutputFormat=opencover
+      working-directory: stin-backend/Tests
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage/**/coverage.opencover.xml
+        files: stin-backend/Tests/coverage/**/coverage.opencover.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
