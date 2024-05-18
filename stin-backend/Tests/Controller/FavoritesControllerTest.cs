@@ -233,7 +233,7 @@ namespace Tests.Controller
                 var actionResult = await controller.DeleteFavorite(1);
 
                 // Assert
-                actionResult.Should().BeOfType<NotFoundResult>();
+                actionResult.Should().BeOfType<NotFoundResult>(); 
             }
         }
 
