@@ -229,6 +229,23 @@ namespace Tests.Controller
                 result.Should().BeOfType<NotFoundResult>();
             }
         }
+        [Fact]
+        public async Task PutUser_WithNonExistingId_ShouldReturnNotFound()
+        {
+            // Arrange
+            using (var context = new DatabaseContext(_dbContextOptions))
+            {
+                var controller = new UsersController(context);
+                var userToUpdate = new User { id = 999, username = "John Updated", password = "newpassword", pay = "200" };
+
+                // Act
+                var result = await controller.PutUser(999, userToUpdate);
+
+                // Assert
+                result.Should().BeOfType<NotFoundResult>();
+            }
+        }
+
     }
 }
 
