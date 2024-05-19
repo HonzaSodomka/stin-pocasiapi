@@ -59,6 +59,8 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Remove Tests Folder
+      run: rm -rf ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Tests
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
