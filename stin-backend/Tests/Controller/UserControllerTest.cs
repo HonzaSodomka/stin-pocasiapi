@@ -55,7 +55,7 @@ namespace Tests.Controller
                 var users = result.Value as IEnumerable<User>;
                 users.Should().HaveCount(2);
                 users.Should().ContainEquivalentOf(
-                    new User { id = 1, username = "John", password = "password", pay = "100" },
+                    new User { id = 1, username = "John", password = "password", pay = "100" }, 
                     options => options.ExcludingMissingMembers()
                 );
                 users.Should().ContainEquivalentOf(
