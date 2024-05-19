@@ -50,9 +50,9 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-  deploy:
+  remove_tests_folder:
     runs-on: windows-latest
-    needs: build
+    needs: [build]
     steps:
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
@@ -60,7 +60,16 @@ jobs:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Remove Tests Folder
-      run: Remove-Item -Path "stin-backend/Tests" -Recurse -Force
+      run: Remove-Item -Path "stin-backend\Tests" -Recurse -Force
+  deploy:
+    needs: [remove_tests_folder]
+    runs-on: windows-latest
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
