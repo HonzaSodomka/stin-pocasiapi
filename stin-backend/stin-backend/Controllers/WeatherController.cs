@@ -9,8 +9,8 @@ using stin_backend.Models;
 
 namespace stin_backend.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class WeatherController : ControllerBase
     {
         private readonly HttpClient _httpClient;
