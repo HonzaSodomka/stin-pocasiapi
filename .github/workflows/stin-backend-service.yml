@@ -1,12 +1,8 @@
 name: Sestavení a nasazení aplikace .NET Core do webové aplikace stin-backend-service se službou API Management stin-backend-apimanag–stin-backend
-
 on:
   push:
     branches:
-      - main
-    paths-ignore:
-      - 'stin-backend/Tests/**'
-
+    - main
 env:
   AZURE_WEBAPP_NAME: stin-backend-service
   AZURE_WEBAPP_PACKAGE_PATH: stin-backend\publish
@@ -23,7 +19,6 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
   WORKING_DIRECTORY: stin-backend
-
 jobs:
   build:
     runs-on: windows-latest
@@ -41,6 +36,8 @@ jobs:
       run: dotnet restore ${{ env.WORKING_DIRECTORY }}
     - name: Build
       run: dotnet build ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-restore
+    - name: Test
+      run: dotnet test ${{ env.WORKING_DIRECTORY }} --no-build
     - name: Publish
       run: dotnet publish ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Install Swashbuckle CLI .NET Global Tool
@@ -53,7 +50,6 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
   deploy:
     runs-on: windows-latest
     needs: build
