@@ -60,7 +60,7 @@ jobs:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Remove Tests Folder
-      run: Remove-Item -Path "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Tests" -Recurse -Force
+      run: Remove-Item -Path "stin-backend/Tests" -Recurse -Force
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
