@@ -1,8 +1,12 @@
 name: Sestavení a nasazení aplikace .NET Core do webové aplikace stin-backend-service se službou API Management stin-backend-apimanag–stin-backend
+
 on:
   push:
     branches:
-    - main
+      - main
+    paths-ignore:
+      - 'Tests/**'
+
 env:
   AZURE_WEBAPP_NAME: stin-backend-service
   AZURE_WEBAPP_PACKAGE_PATH: stin-backend\publish
@@ -19,6 +23,7 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
   WORKING_DIRECTORY: stin-backend
+
 jobs:
   build:
     runs-on: windows-latest
@@ -40,6 +45,8 @@ jobs:
       run: dotnet test ${{ env.WORKING_DIRECTORY }} --no-build
     - name: Publish
       run: dotnet publish ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Remove Tests Folder
+      run: Remove-Item -Path "${{ env.WORKING_DIRECTORY }}/Tests" -Recurse -Force
     - name: Install Swashbuckle CLI .NET Global Tool
       run: dotnet tool install --global Swashbuckle.AspNetCore.Cli --version ${{ env.SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION }}
       working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -50,20 +57,10 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-  remove_tests_folder:
-    runs-on: windows-latest
-    needs: [build]
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v3
-      with:
-        name: webapp
-        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-    - name: Remove Tests Folder
-      run: Remove-Item -Path "stin-backend\Tests" -Recurse -Force
+
   deploy:
-    needs: [remove_tests_folder]
     runs-on: windows-latest
+    needs: build
     steps:
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
