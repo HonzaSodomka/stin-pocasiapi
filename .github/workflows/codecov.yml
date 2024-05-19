@@ -11,31 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Zkontrolovat kód
       uses: actions/checkout@v2
 
-    - name: Setup .NET Core
+    - name: Nastavit .NET Core
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 8.x
 
-    - name: Restore dependencies
+    - name: Obnovit závislosti
       run: dotnet restore
       working-directory: stin-backend/Tests
 
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Instalovat coverlet.collector
+      run: dotnet add package coverlet.collector
       working-directory: stin-backend/Tests
 
-    - name: Run tests with coverage
-      run: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutput=./coverage/ /p:CoverletOutputFormat=cobertura
+    - name: Sestavit
+      run: dotnet build --no-restore --configuration Release
       working-directory: stin-backend/Tests
 
-    - name: Upload coverage to Codecov
+    - name: Spustit testy s pokrytím kódu
+      run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+      working-directory: stin-backend/Tests
+
+    - name: Nahrát pokrytí na Codecov
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: stin-backend/Tests/coverage/coverage.cobertura.xml
+        files: stin-backend/Tests/TestResults/**/coverage.cobertura.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
