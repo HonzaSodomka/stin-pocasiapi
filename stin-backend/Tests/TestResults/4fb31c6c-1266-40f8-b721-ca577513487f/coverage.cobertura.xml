@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.787" branch-rate="0.7272" version="1.9" timestamp="1716070357" lines-covered="122" lines-valid="155" branches-covered="16" branches-valid="22">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.8387" branch-rate="0.7726999999999999" version="1.9" timestamp="1716114336" lines-covered="130" lines-valid="155" branches-covered="17" branches-valid="22">
   <sources>
     <source>C:\Users\hsodo\Documents\GitHub\stin-pocasiapi\stin-backend\stin-backend\</source>
   </sources>
   <packages>
-    <package name="stin-backend" line-rate="0.787" branch-rate="0.7272" complexity="41">
+    <package name="stin-backend" line-rate="0.8387" branch-rate="0.7726999999999999" complexity="41">
       <classes>
         <class name="Program" filename="Program.cs" line-rate="0" branch-rate="0" complexity="2">
           <methods>
@@ -66,24 +66,24 @@
           <methods>
             <method name="get_User" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="47" branch="False" />
+                <line number="10" hits="49" branch="False" />
               </lines>
             </method>
             <method name="get_Favorite" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="11" hits="40" branch="False" />
+                <line number="11" hits="41" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.DbContextOptions`1&lt;stin_backend.Models.DatabaseContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="78" branch="False" />
+                <line number="8" hits="81" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="47" branch="False" />
-            <line number="11" hits="40" branch="False" />
-            <line number="8" hits="78" branch="False" />
+            <line number="10" hits="49" branch="False" />
+            <line number="11" hits="41" branch="False" />
+            <line number="8" hits="81" branch="False" />
           </lines>
         </class>
         <class name="stin_backend.Models.Favorite" filename="Models\Favorite.cs" line-rate="1" branch-rate="1" complexity="3">
@@ -114,30 +114,30 @@
           <methods>
             <method name="get_id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="5" hits="21" branch="False" />
+                <line number="5" hits="23" branch="False" />
               </lines>
             </method>
             <method name="get_username" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="6" hits="17" branch="False" />
+                <line number="6" hits="18" branch="False" />
               </lines>
             </method>
             <method name="get_password" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="7" hits="17" branch="False" />
+                <line number="7" hits="18" branch="False" />
               </lines>
             </method>
             <method name="get_pay" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="17" branch="False" />
+                <line number="8" hits="18" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="5" hits="21" branch="False" />
-            <line number="6" hits="17" branch="False" />
-            <line number="7" hits="17" branch="False" />
-            <line number="8" hits="17" branch="False" />
+            <line number="5" hits="23" branch="False" />
+            <line number="6" hits="18" branch="False" />
+            <line number="7" hits="18" branch="False" />
+            <line number="8" hits="18" branch="False" />
           </lines>
         </class>
         <class name="stin_backend.Controllers.FavoritesController" filename="Controllers\FavoritesController.cs" line-rate="1" branch-rate="1" complexity="2">
@@ -332,32 +332,32 @@
             <line number="73" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="stin_backend.Controllers.UsersController" filename="Controllers\UsersController.cs" line-rate="0.5714" branch-rate="1" complexity="2">
+        <class name="stin_backend.Controllers.UsersController" filename="Controllers\UsersController.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
-            <method name="UserExists" signature="(System.Int32)" line-rate="0" branch-rate="1" complexity="1">
+            <method name="UserExists" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="103" hits="0" branch="False" />
-                <line number="104" hits="0" branch="False" />
-                <line number="105" hits="0" branch="False" />
+                <line number="103" hits="1" branch="False" />
+                <line number="104" hits="1" branch="False" />
+                <line number="105" hits="1" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(stin_backend.Models.DatabaseContext)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="8" branch="False" />
-                <line number="19" hits="8" branch="False" />
-                <line number="20" hits="8" branch="False" />
-                <line number="21" hits="8" branch="False" />
+                <line number="18" hits="9" branch="False" />
+                <line number="19" hits="9" branch="False" />
+                <line number="20" hits="9" branch="False" />
+                <line number="21" hits="9" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="103" hits="0" branch="False" />
-            <line number="104" hits="0" branch="False" />
-            <line number="105" hits="0" branch="False" />
-            <line number="18" hits="8" branch="False" />
-            <line number="19" hits="8" branch="False" />
-            <line number="20" hits="8" branch="False" />
-            <line number="21" hits="8" branch="False" />
+            <line number="103" hits="1" branch="False" />
+            <line number="104" hits="1" branch="False" />
+            <line number="105" hits="1" branch="False" />
+            <line number="18" hits="9" branch="False" />
+            <line number="19" hits="9" branch="False" />
+            <line number="20" hits="9" branch="False" />
+            <line number="21" hits="9" branch="False" />
           </lines>
         </class>
         <class name="stin_backend.Controllers.UsersController/&lt;DeleteUser&gt;d__6" filename="Controllers\UsersController.cs" line-rate="1" branch-rate="1" complexity="2">
@@ -464,64 +464,64 @@
             <line number="84" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="stin_backend.Controllers.UsersController/&lt;PutUser&gt;d__4" filename="Controllers\UsersController.cs" line-rate="0.5882000000000001" branch-rate="0.5" complexity="4">
+        <class name="stin_backend.Controllers.UsersController/&lt;PutUser&gt;d__4" filename="Controllers\UsersController.cs" line-rate="0.8823000000000001" branch-rate="0.75" complexity="4">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0.5882000000000001" branch-rate="0.5" complexity="4">
+            <method name="MoveNext" signature="()" line-rate="0.8823000000000001" branch-rate="0.75" complexity="4">
               <lines>
-                <line number="48" hits="2" branch="False" />
-                <line number="49" hits="2" branch="True" condition-coverage="100% (2/2)">
+                <line number="48" hits="3" branch="False" />
+                <line number="49" hits="3" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="39" type="jump" coverage="100%" />
                   </conditions>
                 </line>
                 <line number="50" hits="1" branch="False" />
                 <line number="51" hits="1" branch="False" />
-                <line number="54" hits="1" branch="False" />
-                <line number="57" hits="1" branch="False" />
-                <line number="58" hits="1" branch="False" />
+                <line number="54" hits="2" branch="False" />
+                <line number="57" hits="2" branch="False" />
+                <line number="58" hits="2" branch="False" />
                 <line number="59" hits="1" branch="False" />
-                <line number="60" hits="0" branch="False" />
-                <line number="61" hits="0" branch="False" />
-                <line number="62" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="60" hits="1" branch="False" />
+                <line number="61" hits="1" branch="False" />
+                <line number="62" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="243" type="jump" coverage="0%" />
+                    <condition number="243" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="63" hits="0" branch="False" />
-                <line number="64" hits="0" branch="False" />
+                <line number="63" hits="1" branch="False" />
+                <line number="64" hits="1" branch="False" />
                 <line number="67" hits="0" branch="False" />
                 <line number="68" hits="0" branch="False" />
                 <line number="72" hits="1" branch="False" />
-                <line number="73" hits="2" branch="False" />
+                <line number="73" hits="3" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="48" hits="2" branch="False" />
-            <line number="49" hits="2" branch="True" condition-coverage="100% (2/2)">
+            <line number="48" hits="3" branch="False" />
+            <line number="49" hits="3" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="39" type="jump" coverage="100%" />
               </conditions>
             </line>
             <line number="50" hits="1" branch="False" />
             <line number="51" hits="1" branch="False" />
-            <line number="54" hits="1" branch="False" />
-            <line number="57" hits="1" branch="False" />
-            <line number="58" hits="1" branch="False" />
+            <line number="54" hits="2" branch="False" />
+            <line number="57" hits="2" branch="False" />
+            <line number="58" hits="2" branch="False" />
             <line number="59" hits="1" branch="False" />
-            <line number="60" hits="0" branch="False" />
-            <line number="61" hits="0" branch="False" />
-            <line number="62" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="60" hits="1" branch="False" />
+            <line number="61" hits="1" branch="False" />
+            <line number="62" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="243" type="jump" coverage="0%" />
+                <condition number="243" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="63" hits="0" branch="False" />
-            <line number="64" hits="0" branch="False" />
+            <line number="63" hits="1" branch="False" />
+            <line number="64" hits="1" branch="False" />
             <line number="67" hits="0" branch="False" />
             <line number="68" hits="0" branch="False" />
             <line number="72" hits="1" branch="False" />
-            <line number="73" hits="2" branch="False" />
+            <line number="73" hits="3" branch="False" />
           </lines>
         </class>
         <class name="stin_backend.Controllers.WeatherController" filename="Controllers\WeatherController.cs" line-rate="1" branch-rate="1" complexity="1">
